@@ -1,0 +1,195 @@
+$pc_l: 1440px;
+$pc_m: 1200px;
+$pc_s: 1025px;
+$pad: 769px;
+$mb_l: 440px;
+$mb_m: 376px;
+$mb_s: 321px;
+
+@mixin pc-width_l() {
+  @media all and (min-width: $pc_l) {
+    @content;
+  }
+}
+@mixin pc-width_m() {
+  @media all and (max-width: $pc_m) {
+    @content;
+  }
+}
+@mixin pc-width_s() {
+  @media all and (max-width: $pc_s) {
+    @content;
+  }
+}
+@mixin pad-width() {
+  @media all and (max-width: $pad) {
+    @content;
+  }
+}
+@mixin mb-width_l() {
+  @media all and (max-width: $mb_l) {
+    @content;
+  }
+}
+@mixin mb-width_m() {
+  @media all and (max-width: $mb_m) {
+    @content;
+  }
+}
+@mixin mb-width_s() {
+  @media all and (max-width: $mb_s) {
+    @content;
+  }
+}
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+  .logo {
+    width: 150px;
+    height: auto;
+    display: inline-block;
+    margin: 0 0 0 20px;
+    background-color: #00151d;
+    padding: 20px 10px;
+  }
+}
+.bg_fix {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url(../images/bg.jpg) top center no-repeat;
+  background-size: contain;
+  background-attachment: fixed;
+  overflow: hidden;
+  z-index: -1;
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    @include pad-width() {
+      width: 140%;
+    }
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: 0;
+    width: 180px;
+    height: 180px;
+    background: url(../images/deco_mail.png) top left no-repeat;
+    background-size: cover;
+    z-index: 1;
+    opacity: 0.3;
+    transform: rotate(10deg);
+  }
+}
+.letter {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 115px 0 50px;
+  @include mb-width_l() {
+    padding: 115px 0 0px;
+  }
+  &__content {
+    width: 90%;
+    max-width: 680px;
+    height: auto;
+    margin: 0px auto;
+    padding: 40px;
+    background-color: #ceb889;
+    box-shadow: 1px 10px 10px 0px #0000005e;
+    position: relative;
+    @include mb-width_l() {
+      padding: 30px 15px;
+    }
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: url(../images/deco_border.jpg) top left repeat-x;
+      background-size: cover;
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 26px;
+      @include mb-width_l() {
+        font-size: 20px;
+      }
+    }
+    h2 {
+      font-weight: 600;
+      line-height: 2rem;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 20px;
+      color: #ab4500;
+      @include mb-width_l() {
+        font-size: 18px;
+        line-height: 1.6rem;
+      }
+      span {
+        font-size: 15px;
+      }
+    }
+    p,
+    li {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 2rem;
+      margin: 16px 0;
+      @include mb-width_l() {
+        font-size: 16px;
+        line-height: 1.5rem;
+      }
+    }
+    li {
+      margin: 0 30px 10px 30px;
+      list-style: circle;
+      @include mb-width_l() {
+        margin: 0 0px 10px 22px;
+      }
+    }
+    strong {
+      font-weight: 400;
+    }
+    .text {
+      margin: 10px 0;
+      a {
+        background-color: #00151d;
+        padding: 10px 20px;
+        margin: 10px auto;
+        display: inline-block;
+      }
+    }
+  }
+}
+.hideme {
+  opacity: 0;
+  animation-timing-function: ease-out;
+}
+.animate__animated {
+  --animate-duration: 2s;
+  animation-timing-function: ease-out;
+}
+.animate__delay-1s {
+  --animate-delay: 1s;
+}
+.pc_only {
+  display: block;
+  @include mb-width_l() {
+    display: none;
+  }
+}
