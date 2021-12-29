@@ -147,7 +147,7 @@
 			ii = -300
 		}
 		if (window.innerWidth < 501) {
-			ii = 0
+			ii = -100
 		}
 		if (window.innerWidth > 1500) {
 			ii = -100
@@ -157,17 +157,17 @@
 				if ($(window).scrollTop() > (scrollHeight * 1 / (i)) + ii) {
 					window.setTimeout(function () {
 						$('.hideme' + (9 - i)).css('opacity', '1')
-						$('.hideme').css('transition', '0.5s')
+						$('.hideme').css('transition', '1s')
 					}, 600 * (9 - i))
 
 					if (i == 3) {
 						window.setTimeout(function () {
 							$('.hideme' + (8)).css('opacity', '1')
-							$('.hideme8').css('transition', '0.5s')
+							$('.hideme8').css('transition', '1s')
 						}, 5200)
 						window.setTimeout(function () {
 							$('.hideme' + (9)).css('opacity', '1')
-							$('.hideme9').css('transition', '0.5s')
+							$('.hideme9').css('transition', '1s')
 						}, 5700)
 					}
 				}
